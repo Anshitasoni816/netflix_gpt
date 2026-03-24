@@ -16,10 +16,23 @@ The React Compiler is not enabled on this template because of its impact on dev 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
 
-# Netflix GPT
+# Netflix GPT  ( https://netflixgpt-b8cae.web.app) - live url
 
 - Create React+Vite app
 - Configured TailwindCss
+- Header
+- routing
+- Sign in/Sign up form (Login Page : Resuable   
+component)
+- Form Validation
+- useRef Hook
+- Firebase Setup
+- Deploying our app to production
+- Create SignUp User Account
+- Implement sign in user api
+- Created Redux store with userSlice
+- Implemented Sign out
+
 
 
 # Features
