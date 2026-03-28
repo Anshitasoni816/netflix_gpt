@@ -32,6 +32,18 @@ component)
 - Implement sign in user api
 - Created Redux store with userSlice
 - Implemented Sign out
+- Update Profile
+- fetch from TMDB movies
+- Bug-fix: fix the sign-up user displayName and profileURL issue
+- moved all harcoded data to constant.js
+   - Main Container
+- Register TMDB now playing movies list API
+- Custom Hook for now playing movies
+- Update store with movies data 
+- Fetch movie trailer for most popular movie
+- Embedded the Youtube video and make it autoplay and mute
+   -Secondary Container
+-
 
 
 
@@ -51,7 +63,8 @@ component)
        - Trailer in Background
        - Title & Description
        - Movie Suggestions
-            -MovieList + N
+            -MovieList * N
+            -MoviesCard * N
 
 - Netflix Gpt
 

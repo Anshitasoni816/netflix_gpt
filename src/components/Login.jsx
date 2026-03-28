@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 import { addUser } from "../utils/userSlice";
 import { useDispatch } from "react-redux";
+import { UserProfileImage } from "../utils/constant.js"
 
 const Login = () => {
   const dispatch = useDispatch()
@@ -48,10 +49,10 @@ const Login = () => {
 
         await updateProfile(user, {
           displayName: derivedDisplayName,
-          photoURL: "https://avatars.githubusercontent.com/u/183834327?v=4",
+          photoURL: UserProfileImage ,
         });
 
-        // 🔥 IMPORTANT
+        // 🔥 IMPOR TANT
         await user.reload();
 
         const { uid, email : userEmail, displayName, photoURL } = user;
@@ -78,9 +79,9 @@ const Login = () => {
 
   return (
     <div className="bg-[url(https://assets.nflxext.com/ffe/siteui/vlv3/eb110559-67e9-40ec-8f1c-4a45b9f9c9bb/web/IN-en-20260309-TRIFECTA-perspective_6796824d-3538-42c9-95e0-baabc0fdbadf_small.jpg)] bg-cover min-h-screen bg-center">
-      <div className="bg-gradient-to-b from-black/100 via-black/5 to-black/70 min-h-screen">
+      {/* <div className="bg-gradient-to-b from-black/100 via-black/5 to-black/70 min-h-screen">
         <Header />
-      </div>
+      </div> */}
 
       <div className="bg-black absolute top-40 md:w-4/12 w-10/12 mx-auto right-0 left-0 md:px-15 px-5 md:py-15 py-5 text-white opacity-75">
         <form

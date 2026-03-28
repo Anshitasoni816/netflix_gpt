@@ -31,7 +31,7 @@ const Body = () => {
     });
 
     return unsubscribe;
-  }, [dispatch]);
+  }, []);
 
   return null;
 };
