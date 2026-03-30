@@ -14,11 +14,11 @@ const [trailerKey, setTrailerKey] = useState(null)
     );
 
     const json = await data.json();
-    console.log(json)
+    console.log("trailer videos",json)
     
     const trailer = json.results.find((video) => video.type == "Trailer" || json.results[2])
     
-    console.log(trailer);
+    console.log("most popular trailer",trailer);
 
     setTrailerKey(trailer?.key)
   };

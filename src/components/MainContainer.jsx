@@ -16,7 +16,7 @@ const MainContainer = () => {
     const {id, title, overview} = mainMovie;
 
    return (
-    <div>
+    <div className='relative h-screen overflow-hidden'>
       <VideoDetails  trailerTitle = {title} trailerOverview = {overview}/>
       <VideoTrailer trailerVideoId = {id} />
     </div>

@@ -1,15 +1,15 @@
-import useMoviesTrailer from "../utils/useMoviesTrailer";
+import useMoviesTrailer from "../hooks/useMoviesTrailer";
 
 
 const VideoTrailer = ({ trailerVideoId }) => {
   const trailerKey = useMoviesTrailer(trailerVideoId)
    return (
-    <div>
+    <div className="h-full">
       {trailerKey ? (
         <iframe
           src={`https://www.youtube.com/embed/${trailerKey}?autoplay=1&mute=1&controls=0`}
           title="Trailer"
-          className="w-screen aspect-video"
+          className="h-full w-screen object-cover"
         />
       ) : <h1>trailer not available</h1> }
     </div>

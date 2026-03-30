@@ -18,7 +18,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between py-2 px-2 md:px-25  bg-gradient-to-b from-black/100 via-black/60 to-black/20 absolute w-screen z-2">
+    <nav className="flex items-center justify-between py-2 px-2 md:px-25  bg-gradient-to-b from-black/100 via-black/60 to-black/20 absolute w-screen z-12">
       <div>
         <img
           className="md:h-20 h-12"
