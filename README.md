@@ -42,7 +42,7 @@ component)
 - Update store with movies data 
 - Fetch movie trailer for most popular movie
 - Embedded the Youtube video and make it autoplay and mute
-   -Secondary Container
+    -Secondary Container
       - fetched topRated, upComming, popular movies list api for TMDB site
       - make custom hook for each topRated, upComming, popular movies list
       - updated the store for each topRated, upComming, popular movies list
