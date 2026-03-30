@@ -15,15 +15,14 @@ The React Compiler is not enabled on this template because of its impact on dev 
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
-
-# Netflix GPT  ( https://netflixgpt-b8cae.web.app) - live url
+# Netflix GPT ( https://netflixgpt-b8cae.web.app) - live url
 
 - Create React+Vite app
 - Configured TailwindCss
 - Header
 - routing
-- Sign in/Sign up form (Login Page : Resuable   
-component)
+- Sign in/Sign up form (Login Page : Resuable  
+  component)
 - Form Validation
 - useRef Hook
 - Firebase Setup
@@ -36,48 +35,41 @@ component)
 - fetch from TMDB movies
 - Bug-fix: fix the sign-up user displayName and profileURL issue
 - moved all harcoded data to constant.js
-   - Main Container
+  - Main Container
 - Register TMDB now playing movies list API
 - Custom Hook for now playing movies
-- Update store with movies data 
+- Update store with movies data
 - Fetch movie trailer for most popular movie
 - Embedded the Youtube video and make it autoplay and mute
-    -Secondary Container
-      - fetched topRated, upComming, popular movies list api for TMDB site
-      - make custom hook for each topRated, upComming, popular movies list
-      - updated the store for each topRated, upComming, popular movies list
-      - fetched topRated, upComming, popular movies list data from store and passed as props to movieList Component
-      - designed movie card component
+  - Secondary Container
+    - fetched topRated, upComming, popular movies list api for TMDB site
+    - make custom hook for each topRated, upComming, popular movies list
+    - updated the store for each topRated, upComming, popular movies list
+    - fetched topRated, upComming, popular movies list data from store and passed as props to movieList Component
+    - designed movie card component
 -
-
-
 
 # Features
 
 - Render a Welcome Page Which wil have a netflix logo on left, signIn option on right, text on centre of screen and an input for email adress and a button to get started (Restart your membership).
 
-- Login/Sign Up 
-
-    - Sign In /Sign up form
-    - redirect to Browse Page
+- Login/Sign Up
+  - Sign In /Sign up form
+  - redirect to Browse Page
 
 - Browse (after authentication)
-
-    - Header 
-    - Main Movie
-       - Trailer in Background
-       - Title & Description
-       - Movie Suggestions
-            -MovieList * N
-            -MoviesCard * N
+  - Header
+  - Main Movie
+    - Trailer in Background
+    - Title & Description
+    - Movie Suggestions
+      -MovieList _ N
+      -MoviesCard _ N
 
 - Netflix Gpt
-
-     - Search Bar
-     - Movie Suggestions
-
+  - Search Bar
+  - Movie Suggestions
 
 - Command to update our changes to the hosted site
-   
-   - npm run build
-   - firebase deploy
+  - npm run build
+  - firebase deploy
