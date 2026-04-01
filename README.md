@@ -47,6 +47,12 @@ If you are developing a production application, we recommend using TypeScript wi
     - updated the store for each topRated, upComming, popular movies list
     - fetched topRated, upComming, popular movies list data from store and passed as props to movieList Component
     - designed movie card component
+  - GptSearch Container
+     - GptSearchBar Component
+     - GptMovieSuggestion Component
+  - Implemented multilingual feature for GptSearchComponent only
+
+     
 -
 
 # Features
