@@ -1,10 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
-import Body from "./components/Body";
 import Browse from "./components/Browse";
 import Login from "./components/Login";
 import appStore from "./utils/appStore";
 import AppLayout from "./components/AppLayout";
+import ProtectedRoute from "./components/ProtectedRoute";
+import PublicRoute from "./components/PublicRoute";
+import GptSearch from "./components/GptSearch";
 
 const appRouter = createBrowserRouter([
   {
@@ -14,15 +16,35 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Login />,
+        element: (
+          <PublicRoute>
+            <Login />
+          </PublicRoute>
+        ),
       },
       {
         path: "/login",
-        element: <Login />,
+        element: (
+          <PublicRoute>
+            <Login />
+          </PublicRoute>
+        ),
       },
       {
         path: "/browse",
-        element: <Browse />,
+        element: (
+          <ProtectedRoute>
+            <Browse />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/gptsearch",
+        element: (
+          <ProtectedRoute>
+            <GptSearch />
+          </ProtectedRoute>
+        ),
       },
     ],
   },

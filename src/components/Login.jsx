@@ -9,7 +9,7 @@ import {
 } from "firebase/auth";
 import { addUser } from "../utils/userSlice";
 import { useDispatch } from "react-redux";
-import { UserProfileImage } from "../utils/constant.js"
+import { Bg_URL, UserProfileImage } from "../utils/constant.js"
 
 const Login = () => {
   const dispatch = useDispatch()
@@ -52,7 +52,7 @@ const Login = () => {
           photoURL: UserProfileImage ,
         });
 
-        // 🔥 IMPOR TANT
+        // 🔥 IMPORTANT
         await user.reload();
 
         const { uid, email : userEmail, displayName, photoURL } = user;
@@ -78,7 +78,9 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-[url(https://assets.nflxext.com/ffe/siteui/vlv3/eb110559-67e9-40ec-8f1c-4a45b9f9c9bb/web/IN-en-20260309-TRIFECTA-perspective_6796824d-3538-42c9-95e0-baabc0fdbadf_small.jpg)] bg-cover min-h-screen bg-center">
+    <div className="bg-cover min-h-screen bg-center"
+    style={{backgroundImage: `url(${Bg_URL})`}}
+    >
       {/* <div className="bg-gradient-to-b from-black/100 via-black/5 to-black/70 min-h-screen">
         <Header />
       </div> */}

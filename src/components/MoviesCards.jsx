@@ -4,7 +4,7 @@ import { ImageCDN } from '../utils/constant'
 const MoviesCards = ({backdropPath, movieTitle}) => {
   return (
    <div className='w-62 aspect-video relative cursor-pointer group transform transition duration-300 hover:scale-110 rounded-2xl overflow-hidden'>
-  
+
   <img 
     src={ImageCDN + backdropPath} 
     alt="posterCard"
