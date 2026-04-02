@@ -50,7 +50,9 @@ If you are developing a production application, we recommend using TypeScript wi
   - GptSearch Container
      - GptSearchBar Component
      - GptMovieSuggestion Component
-  - Implemented multilingual feature for GptSearchComponent only
+  - Implemented multilingual feature for GptSearchComponent only using useLocation.
+  - Integrated geminiAPI in our project for movie recommendation.
+  
 
      
 -

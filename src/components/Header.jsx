@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,10 +7,11 @@ import { Logo, SupportedLanguages } from "../utils/constant.js";
 import { changeLanguage } from "../utils/configSlice.js";
 
 const Header = () => {
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const location = useLocation();
 
   const user = useSelector((store) => store.user.data);
+  const isGptSearchPage = location.pathname === "/gptsearch";
 
   const handleSignOut = () => {
     signOut(auth)
@@ -21,8 +22,8 @@ const Header = () => {
   };
 
   const handleLanguageChange = (e) => {
-    dispatch(changeLanguage(e.target.value))
-  }
+    dispatch(changeLanguage(e.target.value));
+  };
 
   return (
     <nav className="flex items-center justify-between py-2 px-2 md:px-25  bg-gradient-to-b from-black/100 via-black/60 to-black/20 absolute w-screen z-12">
@@ -33,18 +34,35 @@ const Header = () => {
       <div className="flex items-center justify-center md:gap-5 gap-2">
         {user ? (
           <>
-            <div className="flex p-2">
-              <select name="" id="" className="text-white bg-black px-3 py-1" 
-              onChange={handleLanguageChange}>
-               { SupportedLanguages.map((lang) => <option value = {lang.identifier} key =  {lang.identifier}>{lang.name}</option>)}
-                
-              </select>
-            </div>/
-            <Link to="/gptsearch">
-              <button className="font-medium text-white md:text-lg text-md bg-red-600 md:px-4 px-2 rounded">
-                GptSearch
-              </button>
-            </Link>
+            {isGptSearchPage && (
+              <div className="flex p-2">
+                <select
+                  name=""
+                  id=""
+                  className="text-white bg-black px-3 py-1"
+                  onChange={handleLanguageChange}
+                >
+                  {SupportedLanguages.map((lang) => (
+                    <option value={lang.identifier} key={lang.identifier}>
+                      {lang.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+            {isGptSearchPage ? (
+              <Link to="/browse">
+                <button className="font-medium text-white md:text-lg text-md bg-red-600 md:px-4 px-2 rounded">
+                  Home
+                </button>
+              </Link>
+            ) : (
+              <Link to="/gptsearch">
+                <button className="font-medium text-white md:text-lg text-md bg-red-600 md:px-4 px-2 rounded">
+                  Gpt Search
+                </button>
+              </Link>
+            )}
 
             <button
               className="font-medium text-white md:text-lg text-md bg-red-600 md:px-4 px-2 rounded"

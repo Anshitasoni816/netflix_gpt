@@ -21,3 +21,4 @@ export const SupportedLanguages = [
   {identifier: "spanish", name: "Spanish"},
 
 ]
+export const geminiAPI = import.meta.env.VITE_GEMINI_API_KEY;
