@@ -8,7 +8,7 @@ const GptMovieSuggestion = () => {
   if(!gptMovies || !tmdbResults) return null
   
   return (
-    <div>
+    <div className='bg-black md:mt-10 md:mx-10 mt-2 mx-2'>
       {/* <h1 className='text-white ms-20 '>{gptMovies}</h1> */}
       {tmdbResults.map((movies, index) => <MoviesList key={gptMovies[index]} title={gptMovies[index]} movies={tmdbResults[index]}/>)}
     </div>

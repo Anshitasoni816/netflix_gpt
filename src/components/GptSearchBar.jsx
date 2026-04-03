@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import lang from "../utils/languageConstants";
 import useGptSearchClick from "../hooks/useGptSearchClick";
 
-
 const GptSearchBar = () => {
   const langKey = useSelector((store) => store?.config?.language);
   const searchText = useRef(null);
@@ -11,21 +10,21 @@ const GptSearchBar = () => {
   const handleGptSearchClick = useGptSearchClick(searchText)
 
   return (
-    <div className="bg-black w-1/2 mx-auto flex opacity-90">
+    <div className="mx-auto flex w-full max-w-4xl px-3 opacity-90 md:w-1/2 md:px-0">
       <form
         action=""
-        className="p-5 flex w-full"
+        className="flex w-full flex-col gap-3 bg-black p-3 md:flex-row md:p-5"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
           type="text"
           placeholder={lang[langKey]?.gptSearchPlaceHolder}
-          className="outline-none bg-white flex-1 px-3 py-3 m-2 text-md rounded"
+          className="m-0 flex-1 rounded bg-white px-3 py-3 text-md outline-none"
           ref={searchText}
         />
 
         <button
-          className="text-white bg-red-700 px-12 py-2 m-2 font-medium rounded text-xl"
+          className="rounded bg-red-700 px-6 py-3 text-base font-medium text-white md:px-12 md:py-2 md:text-xl"
           onClick={handleGptSearchClick}
         >
           {lang[langKey]?.search}

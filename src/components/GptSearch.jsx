@@ -4,7 +4,7 @@ import GptMovieSuggestion from './GptMovieSuggestion'
 import { Bg_URL } from '../utils/constant'
 const GptSearch = () => {
   return (
-    <div className='pt-48 bg-cover min-h-screen bg-center'
+    <div className='min-h-screen bg-cover bg-center pt-28 pb-24 md:pt-48 md:pb-10'
      style={{backgroundImage: `url(${Bg_URL})`}}>
      <GptSearchBar/>
      <GptMovieSuggestion/>
