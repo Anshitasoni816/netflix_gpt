@@ -7,7 +7,7 @@ const GptSearch = () => {
     <div className='pt-48 bg-cover min-h-screen bg-center'
      style={{backgroundImage: `url(${Bg_URL})`}}>
      <GptSearchBar/>
-     {/* <GptMovieSuggestion/> */}
+     <GptMovieSuggestion/>
     </div>
   )
 }

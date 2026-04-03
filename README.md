@@ -48,13 +48,17 @@ If you are developing a production application, we recommend using TypeScript wi
     - fetched topRated, upComming, popular movies list data from store and passed as props to movieList Component
     - designed movie card component
   - GptSearch Container
-     - GptSearchBar Component
-     - GptMovieSuggestion Component
+    - GptSearchBar Component
+    - GptMovieSuggestion Component
   - Implemented multilingual feature for GptSearchComponent only using useLocation.
   - Integrated geminiAPI in our project for movie recommendation.
-  
-
-     
+  - User types text in GptSearchBar
+  - React reads that text using useRef
+  - My code sends that text as a prompt to Gemini
+  - Gemini returns movie names as plain text
+  - I split that text into an array of movie names
+  - For each movie name, I'll call TMDB search API
+  - TMDB returns movie objects for each name
 -
 
 # Features
