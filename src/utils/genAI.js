@@ -1,10 +1,3 @@
 import { GoogleGenAI } from "@google/genai";
-import { geminiAPI } from "./constant";
 
-const genAI = new GoogleGenAI({
-  apiKey: geminiAPI, 
-});
-
-export default genAI;
-
-
+export const createGenAI = (apiKey) => new GoogleGenAI({ apiKey });

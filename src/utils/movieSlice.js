@@ -10,6 +10,7 @@ const movieSlice = createSlice({
         horrorMovies: null,
         tmdbResults : null,
         gptMovies : null,
+        gptLoading: false,
     },
 
     reducers: {
@@ -32,9 +33,16 @@ const movieSlice = createSlice({
             const {tmdbResults, gptMovies} = action.payload
             state.tmdbResults = tmdbResults
             state.gptMovies = gptMovies
+        },
+        clearGptSearchMovies: (state) => {
+            state.tmdbResults = null
+            state.gptMovies = null
+        },
+        setGptLoading: (state, action) => {
+            state.gptLoading = action.payload
         }
     }
 })
 
-export const { addNowPlayingMovies, addHorrorMovies, addPopularMovies, addUpCommingMovies, addTopRatedMovies, addGptSearchMovies } = movieSlice.actions;
+export const { addNowPlayingMovies, addHorrorMovies, addPopularMovies, addUpCommingMovies, addTopRatedMovies, addGptSearchMovies, clearGptSearchMovies, setGptLoading } = movieSlice.actions;
 export default movieSlice.reducer;

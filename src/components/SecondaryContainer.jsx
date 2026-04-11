@@ -1,6 +1,7 @@
 import React from "react";
 import MoviesList from "./MoviesList";
 import { useSelector } from "react-redux";
+import SkeletonRow from "./SkeletonRow";
 
 const SecondaryContainer = () => {
   const nowPlayingMovies = useSelector(
@@ -19,18 +20,18 @@ const SecondaryContainer = () => {
     (store) => store?.movies?.popularMovies,
   );
 
-  if (!nowPlayingMovies) return null;
-  if (!topRatedMovies) return null;
-  if (!upComingMovies) return null;
-  if (!popularMovies) return null;
-
-  console.log("secondary container now playing movies", nowPlayingMovies);
-
-  console.log("secondary container top rated playing movies", topRatedMovies);
-
-  console.log("secondary container popular movies", popularMovies);
-
-  console.log("secondary container upcomming movies", upComingMovies);
+  if (!nowPlayingMovies || !topRatedMovies || !upComingMovies || !popularMovies) {
+    return (
+      <div className="bg-black pb-20 md:pb-30 md:pt-12">
+        <div className="md:-mt-40 md:z-10 md:relative">
+          <SkeletonRow />
+        </div>
+        <SkeletonRow titleWidthClass="w-28" />
+        <SkeletonRow titleWidthClass="w-24" />
+        <SkeletonRow titleWidthClass="w-32" />
+      </div>
+    );
+  }
 
   return (
     <div className="bg-black pb-20 md:pb-30 md:pt-12">

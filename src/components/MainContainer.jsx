@@ -2,11 +2,12 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import VideoDetails from './VideoDetails'
 import VideoTrailer from './VideoTrailer'
+import SkeletonHero from './SkeletonHero'
 
 const MainContainer = () => {
 
     const movies = useSelector((store)=>store.movies?.nowPlayingMovies)
-    if(!movies) return null
+    if(!movies) return <SkeletonHero />
 
     //logic to fetch the most popular trailer
     const mainMovie = movies.reduce((best, current) => {

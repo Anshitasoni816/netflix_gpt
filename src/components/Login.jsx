@@ -10,10 +10,52 @@ import { addUser } from "../utils/userSlice";
 import { useDispatch } from "react-redux";
 import { Bg_URL, UserProfileImage } from "../utils/constant.js";
 
+const EyeOpenIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="1.8"
+    stroke="currentColor"
+    className="size-5"
+    aria-hidden="true"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.964-7.178z"
+    />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+    />
+  </svg>
+);
+
+const EyeClosedIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="1.8"
+    stroke="currentColor"
+    className="size-5"
+    aria-hidden="true"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M3 3l18 18M10.584 10.587A2.25 2.25 0 0012 16.5a2.25 2.25 0 001.414-.497M9.88 5.09A9.77 9.77 0 0112 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639a11.955 11.955 0 01-3.289 5.031M6.228 6.228a11.956 11.956 0 00-4.192 5.455 1.012 1.012 0 000 .639C3.423 16.493 7.36 19.5 12 19.5a11.95 11.95 0 005.272-1.224"
+    />
+  </svg>
+);
+
 const Login = () => {
   const dispatch = useDispatch();
   const [isSignIn, setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
 
   const password = useRef(null);
   const email = useRef(null);
@@ -21,6 +63,7 @@ const Login = () => {
   const changetoSignUpForm = () => {
     setIsSignIn(!isSignIn);
     setErrorMessage(null);
+    setShowPassword(false);
   };
 
   const handleButtonClick = async () => {
@@ -94,6 +137,9 @@ const Login = () => {
               handleButtonClick();
             }}
           >
+            <h1 className="mb-3 rounded-md border border-amber-400/40 bg-amber-500/10 px-3 py-2 text-center text-sm font-semibold text-amber-200 md:text-base">
+              Use VPN before Login / Signup
+            </h1>
             <h2 className="mb-5 text-2xl font-bold md:text-3xl">
               {isSignIn ? "Sign In" : "Sign Up"}
             </h2>
@@ -105,12 +151,23 @@ const Login = () => {
               className="my-4 w-full bg-gray-700 p-2"
             />
 
-            <input
-              ref={password}
-              type="password"
-              placeholder="Password"
-              className="my-4 w-full bg-gray-700 p-2"
-            />
+            <div className="relative my-4">
+              <input
+                ref={password}
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                className="w-full bg-gray-700 p-2 pr-10"
+              />
+
+              <button
+                type="button"
+                className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-200"
+                onClick={() => setShowPassword((prev) => !prev)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? <EyeClosedIcon /> : <EyeOpenIcon />}
+              </button>
+            </div>
 
             <p className="text-red-300">{errorMessage}</p>
 

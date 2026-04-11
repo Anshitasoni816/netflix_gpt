@@ -21,5 +21,6 @@ export const SupportedLanguages = [
   {identifier: "spanish", name: "Spanish"},
 
 ]
-export const geminiAPI = import.meta.env.VITE_GEMINI_API_KEY;
+// export const geminiAPI = import.meta.env.VITE_GEMINI_API_KEY;
 
+export const LinkToGetAPIKey ="https://aistudio.google.com/app/api-keys?project=netflixgpt-b8cae"

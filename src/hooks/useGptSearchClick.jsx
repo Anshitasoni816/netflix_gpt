@@ -1,11 +1,11 @@
-import React from "react";
-import genAI from "../utils/genAI";
+import { createGenAI } from "../utils/genAI";
 import { API_OPTIONS } from "../utils/constant";
 import { useDispatch } from "react-redux";
-import { addGptSearchMovies } from "../utils/movieSlice";
+import { addGptSearchMovies, clearGptSearchMovies, setGptLoading } from "../utils/movieSlice";
 
-const useGptSearchClick = (searchText) => {
-    const dispatch = useDispatch()
+const useGptSearchClick = (searchText, apiKey) => {
+  const dispatch = useDispatch();
+
   const searchMovieTMDB = async (movie) => {
     const data = await fetch(
       `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(movie)}&include_adult=false&language=en-US&page=1`,
@@ -19,8 +19,11 @@ const useGptSearchClick = (searchText) => {
 
   const handleGptSearchClick = async () => {
     const userQuery = searchText.current.value;
-    console.log(userQuery);
     if (!userQuery?.trim()) return;
+    if (!apiKey?.trim()) return;
+
+    dispatch(clearGptSearchMovies());
+    dispatch(setGptLoading(true));
 
     const prompt =
       'Act as a movie recommendation system and suggest some movies for the query: "' +
@@ -28,6 +31,7 @@ const useGptSearchClick = (searchText) => {
       '". Only give me the names of 5 movies, comma separated. Example: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya';
 
     try {
+      const genAI = createGenAI(apiKey);
       const result = await genAI.models.generateContent({
         model: "gemini-2.5-flash-lite",
         contents: prompt,
@@ -39,11 +43,11 @@ const useGptSearchClick = (searchText) => {
 
       const tmdbResults = await Promise.all(promiseArray);
 
-      console.log("gptMovies", gptMovies);
-      console.log("tmdbResults", tmdbResults);
-      dispatch(addGptSearchMovies({tmdbResults, gptMovies}))
+      dispatch(addGptSearchMovies({ tmdbResults, gptMovies }));
     } catch (error) {
       console.error("Gemini API error:", error);
+    } finally {
+      dispatch(setGptLoading(false));
     }
   };
 
