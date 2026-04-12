@@ -11,7 +11,12 @@ const MoviesList = ({title, movies}) => {
      <div className='flex overflow-x-auto no-scrollbar scroll-smooth'>
        <div className='flex min-w-max gap-3'>
         {movies?.map((movie) => (
-        <MoviesCards key={movie?.id} backdropPath = {movie?.backdrop_path} movieTitle = {movie?.title}/>
+        <MoviesCards
+          key={movie?.id}
+          backdropPath={movie?.backdrop_path}
+          movieTitle={movie?.title}
+          language={movie?.original_language}
+        />
       ))}
        </div>
     </div>
@@ -20,5 +25,3 @@ const MoviesList = ({title, movies}) => {
 }
 
 export default MoviesList
-
-

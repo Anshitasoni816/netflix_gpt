@@ -59,7 +59,13 @@ If you are developing a production application, we recommend using TypeScript wi
   - I split that text into an array of movie names
   - For each movie name, I'll call TMDB search API
   - TMDB returns movie objects for each name
--
+- Responsive Gemini API key UI + modern heading styles
+- BYOK (client-only) Gemini key flow using component state (no env storage)
+- Refactored Gemini client to use runtime key + privacy note
+- Shimmer/Skeleton UI for Browse hero & rows and GPT results
+- GPT search loading state + �Searching�� indicator
+- VPN reminder heading on Login/Sign Up page
+
 
 # Features
 
