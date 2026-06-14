@@ -1,6 +1,6 @@
 import React from 'react'
  import  { useEffect, useState } from "react";
-import { API_OPTIONS } from "../utils/constant";
+import { API_OPTIONS, TMDB_BASE } from "../utils/constant";
 
 const useMoviesTrailer = (trailerVideoId) => {
 
@@ -9,7 +9,7 @@ const [trailerKey, setTrailerKey] = useState(null)
 
   const getMovieTrailer = async () => {
     const data = await fetch(
-      `https://api.themoviedb.org/3/movie/${trailerVideoId}/videos`,
+      `${TMDB_BASE}movie/${trailerVideoId}/videos`,
       API_OPTIONS,
     );
 

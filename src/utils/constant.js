@@ -2,11 +2,12 @@ export const Logo = "https://help.nflxext.com/helpcenter/OneTrust/oneTrust_produ
 
 export const UserProfileImage = "https://avatars.githubusercontent.com/u/183834327?v=4";
 
+export const TMDB_BASE = `${import.meta.env.VITE_TMDB_PROXY_URL}/api/tmdb?path=`;
+
 export const API_OPTIONS = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`
   }
 };
 

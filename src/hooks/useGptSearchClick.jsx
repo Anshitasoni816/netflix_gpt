@@ -1,5 +1,5 @@
 import { createGenAI } from "../utils/genAI";
-import { API_OPTIONS } from "../utils/constant";
+import { API_OPTIONS, TMDB_BASE } from "../utils/constant";
 import { useDispatch } from "react-redux";
 import { addGptSearchMovies, clearGptSearchMovies, setGptLoading } from "../utils/movieSlice";
 
@@ -8,7 +8,7 @@ const useGptSearchClick = (searchText, apiKey) => {
 
   const searchMovieTMDB = async (movie) => {
     const data = await fetch(
-      `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(movie)}&include_adult=false&language=en-US&page=1`,
+      `${TMDB_BASE}search/movie&query=${encodeURIComponent(movie)}&include_adult=false&language=en-US&page=1`,
       API_OPTIONS,
     );
 
