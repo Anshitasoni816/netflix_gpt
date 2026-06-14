@@ -137,9 +137,7 @@ const Login = () => {
               handleButtonClick();
             }}
           >
-            <h1 className="mb-3 rounded-md border border-amber-400/40 bg-amber-500/10 px-3 py-2 text-center text-sm font-semibold text-amber-200 md:text-base">
-              Use VPN before Login / Signup
-            </h1>
+            
             <h2 className="mb-5 text-2xl font-bold md:text-3xl">
               {isSignIn ? "Sign In" : "Sign Up"}
             </h2>
